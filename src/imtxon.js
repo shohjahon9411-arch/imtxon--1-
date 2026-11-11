@@ -28,43 +28,45 @@ app.get("/foods/all", (req, res) => {
 
 
 app.post("/users", (req, res) => {
-    const filePath = path.join(process.cwd(), "src", "db", "users.json");
-    const users = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    const filePath = path.join(process.cwd(), "src", "db", "users.json")
+    const users = JSON.parse(fs.readFileSync(filePath, "utf-8"))
 
     const newUser = {
         id: (users.at(-1)?.id || 0) + 1,
         ...req.body
-    };
+    }
 
-    users.push(newUser);
+    users.push(newUser)
     fs.writeFileSync(filePath, JSON.stringify(users, null, 4));
 
     res.status(201).json({
         message: "User added",
         data: newUser
-    });
+    })
 })
 
 app.post("/orders", (req, res) => {
     const { id } = req.params
-    
-    
-    let users = fs.readFileSync(path.join(process.cwd(), "src", "db", "users.json"), "utf-8")
+    console.log(id)
+
+    const filePath = path.join(process.cwd(), "src", "db", "orders.json")
+    let orders = JSON.parse(fs.readFileSync(filePath, "utf-8") || "[]")
 
     const newOrder = {
-        id: (order.at(-1)?.id || 0) + 1,
+        id: (orders.at(-1)?.id || 0) + 1,
+        userId: Number(id),
         ...req.body
     }
 
-
-    order.push(newOrder);
-    fs.writeFileSync(filePath, JSON.stringify(order, null, 4))
+    orders.push(newOrder);
+    fs.writeFileSync(filePath, JSON.stringify(orders, null, 4));
 
     res.status(201).json({
         message: "order added",
         data: newOrder
     })
 })
+
 
 
 
