@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "name":"cola",
+        "food_img":"cola.jpeg"
+    },
+        {
+        "id":2,
+        "name":"fanta",
+        "food_img":"fanta.jpeg"
+    },
+        {
+        "id":3,
+        "name":"burgare_cheze",
+        "food_img":"burgare_cheze.jpeg"
+    }
+]
