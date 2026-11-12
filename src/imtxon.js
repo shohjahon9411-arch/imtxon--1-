@@ -49,7 +49,7 @@ app.post("/orders", (req, res) => {
     const { id } = req.params
 
     const filePath = path.join(process.cwd(), "src", "db", "orders.json")
-    let orders = JSON.parse(fs.readFileSync(filePath, "utf-8") || "[]")
+    let orders = JSON.parse(fs.readFileSync(filePath, "utf-8") )
 
     const newOrder = {
         id: (orders.at(-1)?.id || 0) + 1,

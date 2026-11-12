@@ -18,5 +18,12 @@
         "user_id": 2,
         "food_id": 3,
         "count": 54
+    },
+    {
+        "id": 4,
+        "userId": null,
+        "user_id": 2,
+        "food_id": 3,
+        "count": 1
     }
 ]
