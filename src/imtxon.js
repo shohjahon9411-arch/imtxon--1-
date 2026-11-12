@@ -47,7 +47,6 @@ app.post("/users", (req, res) => {
 
 app.post("/orders", (req, res) => {
     const { id } = req.params
-    console.log(id)
 
     const filePath = path.join(process.cwd(), "src", "db", "orders.json")
     let orders = JSON.parse(fs.readFileSync(filePath, "utf-8") || "[]")
